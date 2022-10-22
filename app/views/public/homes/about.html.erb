@@ -1,23 +1,52 @@
+<h1 class="text-center mb-5">Dogsって？</h1>
+<p class="text-center mb-5">
+  Dogsは、自分の飼っているペットの写真やお気に入りの犬の写真を投稿し、犬好きと交流を深められるSNSサイトです。<br><br>
+  もちろんペットを飼っていない方でも、投稿を見たり、コメントしたりすることができます。<br><br>
+  あなたの可愛い愛犬の写真を世界に発信しましょう！
+</p>
 <div class="container">
-  <div class='row'>
-    <div class='mx-auto col-10'>
-      <h1 class='mx-auto col-4 mb-5'>Dogsって？</h1>
-      <p class='mx-auto col-10 mb-5'>
-        Dogsは、自分の飼っているペットの写真を投稿し、犬好きと交流を深められるSNSサイトです。<br><br>
-        もちろんペットを飼っていない方でも、投稿を見たり、コメントしたりすることができます。<br><br>
-        あなたの可愛い愛犬の写真を世界に発信しましょう！
+  <div class="row mb-5">
+    <div class="col-7 mx-auto mt-3">
+      <h3>どういう時に使うの？</h3>
+      <p>Dogsは以下のような場面で利用することができます。</p>
+      <ul>
+        <li>飼っているペットの成長記録</li>
+        <li>お気に入りのペットの写真を共有したい！</li>
+        <li>同じペット好きな人とお話したい！</li>
+        <li>このわんちゃんの仕草が可愛いから見てほしい(笑)</li>
+        <li>育て方や病院選びで悩んでいる…</li>
+        <li>ペットは飼えないけど写真を見て癒されたい！</li>
+      </ul>
+      <p>
+        みなさんに投稿いただいた写真に「いいね！」できたり、メッセージを伝えたい<br>
+        ときにはコメントを送ることもできます。<br>
+        この人とお友達になりたい！と思ったら、フォローしたり、チャットでお話を<br>
+        してみましょう！
       </p>
-      <h3 class='mx-auto col-5 mb-5'>どういう時に使うの？</h3>
-      <div class='mx-auto col-7 mb-5'>
-        <p>利用できるシーンを一部紹介します。</p>
-        <ul>
-          <li>飼っているペットの成長記録</li>
-          <li>お気に入りのペットの写真を発信</li>
-          <li>同じペット好きな人とのコミュニティを作る</li>
-          <li>育て方や病院選び等で悩んでいる事を解決したいとき</li>
-          <li>ペットが飼えない方でも写真を見て癒されたいとき</li>
-        </ul>
-        <p>その他にも多様な使い方ができます！</p>
+    </div>
+    <div class="col-5"><%= image_tag 'photo1.png', style: "width: 500px;" %></div>
+  </div>
+  <div class="row">
+    <div class="col-5"><%= image_tag 'photo3.png', style: "width: 450px;" %></div>
+    <div class="col-7 mx-auto mt-5">
+      <p>
+        その他、投稿や会員を検索したり、いいねした投稿一覧を確認することができます。<br>
+        また、今後もペットに関するコミュニケーションを楽しんでいただくために<br>
+        更なる改善や追加などを行う予定です。<br>
+        会員登録・ご利用は無料です。<br>
+        もし、会員登録を迷われている方はページ右上の「ゲストログイン」をクリックする<br>
+        ことで、お試しでご利用いただけます。<br>
+        興味を持っていただいたけましたら、ぜひ会員登録をしてご利用ください！
+      </p>
+      <div class='text-center mb-3'>
+        <%= link_to new_member_registration_path, class: 'text-dark mb-3' do %>
+          <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>新規会員登録
+        <% end %>
+      </div>
+      <div class='text-center'>
+        <%= link_to new_member_session_path, class: 'text-dark' do %>
+          <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>会員ログイン
+        <% end %>
       </div>
     </div>
   </div>
