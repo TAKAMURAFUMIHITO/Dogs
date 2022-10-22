@@ -6,6 +6,7 @@ class Public::MessagesController < ApplicationController
     if message.save
       redirect_to room_path(message.room)
     else
+      flash[:danger] = "メッセージを送信できませんでした。"
       redirect_back(fallback_location: root_path) #直前のページにリダイレクト
     end
   end
