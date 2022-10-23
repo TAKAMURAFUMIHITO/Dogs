@@ -46,14 +46,22 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.update(post_params)
-      flash[:notice] = "投稿を編集しました。"
-      redirect_to post_path(post.id)
-    else
-      @post = Post.find(params[:id])
-      flash[:danger] = "編集に失敗しました。入力内容を確認してから再度お試しください。"
-      render "edit"
+    @post = Post.find(params[:id])
+    # 添付画像を個別に削除
+    if params[:post][:post_image_ids]
+      params[:post][:post_image_ids].each do |post_image_id|
+        post_image = @post.post_images.find(post_image_id)
+        post_image.purge
+      end
+    end
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: "投稿を編集しました。" }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -73,6 +81,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_image, :title, :body)
+    params.require(:post).permit(:title, :body, post_images: [])
   end
 end

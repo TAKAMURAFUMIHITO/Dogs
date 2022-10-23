@@ -7,8 +7,8 @@
       <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
         <div class="form-group">
           <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>
-          <%= f.label :post_image, "写真" %>
-          <%= f.file_field :post_image, class: "form-control-file", accept: 'post_image/*' %>
+          <%= f.label :post_images, "写真" %>
+          <%= f.file_field :post_images, class: "form-control-file", multiple: true %>
         </div>
         <div class="form-group">
           <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>

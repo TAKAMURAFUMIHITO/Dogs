@@ -19,10 +19,13 @@
             <% end %>
           </div>
         </div>
-        <% if @post.post_image.present? %>
+        <% if @post.post_images.present? %>
           <div class="card-img-top">
-            <%= image_tag @post.post_image, size: "300x375" %>
+            <% @post.post_images.each do |image| %>
+              <%= link_to image_tag(image, width: "300"), url_for(image) %>
+            <% end %>
           </div>
+          <p class="text-right mr-3"><%= @post.post_images.count %>枚</p>
         <% end %>
         <div class="card-body">
           <span>
