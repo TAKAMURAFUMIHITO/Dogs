@@ -32,11 +32,14 @@
               <div class="card-header">
                 <%= image_tag post.member.get_profile_image %>
               </div>
-              <% if post.post_image.present? %>
+              <% if post.post_images.present? %>
                 <div class="card-img-top">
-                  <%= link_to admin_post_path(post.id) do %>
-                    <%= image_tag post.post_image, size: "180x230" %>
+                  <% post.post_images.each do |image| %>
+                    <%= link_to admin_post_path(post.id) do %>
+                      <%= image_tag image.variant(resize: "150x150") %>
+                    <% end %>
                   <% end %>
+                  <p class="text-right mr-3"><%= post.post_images.count %>枚</p>
                 </div>
               <% end %>
               <div class="card-body">

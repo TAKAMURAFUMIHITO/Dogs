@@ -214,3 +214,18 @@
 .pagination li a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
+
+.post_images_box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 750px;
+}
+
+.post_images {
+  display: flex;
+  margin: 5px 10px;
+}
+
+.check_box {
+  margin: 0 5px;
+}
