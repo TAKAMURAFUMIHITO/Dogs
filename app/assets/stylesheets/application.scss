@@ -15,6 +15,8 @@
  */
 
  @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+ @import "slick-theme";
+ @import "slick";
 
  header {
   background-color: #deb887;
@@ -53,7 +55,9 @@
  }
 
  .card-img-top {
-  text-align: center;
+   img {
+     margin: 5px auto 0;
+   }
  }
 
  .card-title {
@@ -228,4 +232,8 @@
 
 .check_box {
   margin: 0 5px;
+}
+
+.slicker {
+  margin: 0 auto;
 }
