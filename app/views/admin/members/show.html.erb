@@ -32,12 +32,15 @@
               <div class="card-header">
                 <%= image_tag post.member.get_profile_image %>
               </div>
-              <% if post.post_image.present? %>
-                <div class="card-img-top">
-                  <%= link_to admin_post_path(post.id) do %>
-                    <%= image_tag post.post_image, size: "180x230" %>
+              <% if post.post_images.present? %>
+                <div class="card-img-top slicker_non_auto">
+                  <% post.post_images.each do |image| %>
+                    <%= link_to admin_post_path(post.id) do %>
+                      <%= image_tag(image, width: "200px") %>
+                    <% end %>
                   <% end %>
                 </div>
+                <p class="text-right mr-3">image:<%= post.post_images.count %></p>
               <% end %>
               <div class="card-body">
                 <span>

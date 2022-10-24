@@ -1,12 +1,12 @@
 class Public::MembersController < ApplicationController
   before_action :authenticate_member!
   def index
-    @members = Member.all
+    @members = Member.all.page(params[:page]).per(15)
   end
 
   def show
     @member = Member.find(params[:id])
-    @posts = @member.posts.page(params[:page]).per(8)
+    @posts = @member.posts.order(id: "DESC").page(params[:page]).per(8)   # 投稿idの降順,8つずつページネーション
     @today = Date.today # 今日の日付を取得
     @now = Time.now     # 現在時刻を取得
     @current_entry = Entry.where(member_id: current_member.id)  # ログインしてるユーザーとメッセージ相手のユーザー情報をEntryテーブルから検索して取得

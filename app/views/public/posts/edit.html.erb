@@ -2,16 +2,27 @@
   <div class="row">
     <div class="mx-auto col-10">
       <h2>投稿を編集</h2>
-      <%= flash[:danger] %>
       <%= form_with model: @post, url: post_path, method: :patch, local: true do |f| %>
+        <% if @post.post_images.attached? %>
+          <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>
+          選択済みの写真（削除する写真にチェックをつけてください）
+          <div class="post_images_box">
+            <% @post.post_images.each do |image| %>
+              <div class="post_images">
+                <div class="check_box"><%= f.check_box :post_image_ids, { multiple: true }, image.id, false %></div>
+                <label for="post_image_ids_<%= image.id %>" ><%= image_tag image, style: "width: 200px;" %></label>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
         <div class="form-group">
           <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>
-          <%= f.label :post_image, "写真" %>
-          <%= f.file_field :post_image, class: "form-control-file", accept: 'post_image/*' %>
+          <%= f.label :post_images, "写真" %>
+          <%= f.file_field :post_images, class: "form-control-file", multiple: true %>
         </div>
         <div class="form-group">
           <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>
-          <%= f.label :title, "タイトル" %>
+          <%= f.label :title, "タイトル" %>(※必須)
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group">
@@ -20,7 +31,7 @@
           <%= f.text_area :body, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.submit "編集する",class: 'btn btn-outline-secondary' %>
+          <%= f.submit "編集する", class: 'btn btn-outline-secondary' %>
         </div>
       <% end %>
     </div>

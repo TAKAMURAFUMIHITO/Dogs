@@ -6,10 +6,10 @@
   </div>
   <div>
     <!--検索対象モデルが会員の時 -->
-    <% if @range == "会員" %>
+    <% if @range == "会員を探す" %>
       <div class="row">
         <div class="mx-auto col-10">
-          <%= render "public/members/index", members: @member %>
+          <%= render "public/members/index", members: @members %>
         </div>
       </div>
     <% else %>

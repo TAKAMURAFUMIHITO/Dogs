@@ -2,7 +2,7 @@ class Public::SearchesController < ApplicationController
   before_action :authenticate_member!
   def search
     @range = params[:range]
-    if @range == "会員"
+    if @range == "会員を探す"
       @members = Member.looks(params[:search], params[:word])
     else
       @posts = Post.looks(params[:search], params[:word])

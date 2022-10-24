@@ -1,7 +1,7 @@
 class Admin::MembersController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @members = Member.all
+    @members = Member.all.page(params[:page]).per(15)
   end
 
   def show
@@ -16,10 +16,13 @@ class Admin::MembersController < ApplicationController
   end
 
   def update
-     member = Member.find(params[:id])
+    member = Member.find(params[:id])
     if member.update(member_params)
-      redirect_to admin_members_path
+      flash[:notice] = "会員情報を更新しました。"
+      redirect_to member_path(current_member)
     else
+      @member = Member.find(params[:id])
+      flash[:danger] = "会員情報の更新に失敗しました。入力内容を確認してから再度お試しください。"
       render "edit"
     end
   end

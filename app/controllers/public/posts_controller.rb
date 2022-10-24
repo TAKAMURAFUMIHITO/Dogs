@@ -20,7 +20,13 @@ class Public::PostsController < ApplicationController
   def index
     @today = Date.today #今日の日付を取得
     @now = Time.now     #現在時刻を取得
-    @posts = Post.all.page(params[:page]).per(15)
+    to  = Time.current.at_end_of_day
+    from  = (to - 6.day).at_beginning_of_day
+    posts = Post.includes(:member).sort {|a,b|        # N+1問題解消  # 過去１週間のいいね数順に表示される
+      b.likes.where(created_at: from...to).size <=>
+      a.likes.where(created_at: from...to).size
+    }
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(15)  # ページネーション
   end
 
   def show
@@ -40,14 +46,22 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.update(post_params)
-      flash[:notice] = "投稿を編集しました。"
-      redirect_to post_path(post.id)
-    else
-      @post = Post.find(params[:id])
-      flash[:danger] = "編集に失敗しました。入力内容を確認してから再度お試しください。"
-      render "edit"
+    @post = Post.find(params[:id])
+    # 添付画像を個別に削除
+    if params[:post][:post_image_ids]
+      params[:post][:post_image_ids].each do |post_image_id|
+        post_image = @post.post_images.find(post_image_id)
+        post_image.purge
+      end
+    end
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: "投稿を編集しました。" }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -67,6 +81,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_image, :title, :body)
+    params.require(:post).permit(:title, :body, post_images: [])
   end
 end

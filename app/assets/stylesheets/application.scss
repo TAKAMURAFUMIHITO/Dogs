@@ -15,10 +15,11 @@
  */
 
  @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+ @import "slick-theme";
+ @import "slick";
 
  header {
   background-color: #deb887;
-  border-bottom: 1px solid #000;
  }
 
  footer {
@@ -54,7 +55,9 @@
  }
 
  .card-img-top {
-  text-align: center;
+   img {
+     margin: 5px auto 0;
+   }
  }
 
  .card-title {
@@ -214,4 +217,23 @@
 /*ホバー時のデザイン*/
 .pagination li a:hover {
   border-radius: 15px;    /*角を丸くする*/
+}
+
+.post_images_box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 750px;
+}
+
+.post_images {
+  display: flex;
+  margin: 5px 10px;
+}
+
+.check_box {
+  margin: 0 5px;
+}
+
+.slicker {
+  margin: 0 auto;
 }
