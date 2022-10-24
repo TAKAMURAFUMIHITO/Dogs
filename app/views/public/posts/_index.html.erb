@@ -5,14 +5,14 @@
     <% end %>
   </div>
   <% if post.post_images.present? %>
-    <div class="card-img-top">
+    <div class="card-img-top slicker_non_auto">
       <% post.post_images.each do |image| %>
         <%= link_to post_path(post.id) do %>
-          <%= image_tag image.variant(resize: "150x150") %>
+          <%= image_tag(image, width: "200px") %>
         <% end %>
       <% end %>
-      <p class="text-right mr-3"><%= post.post_images.count %>枚</p>
     </div>
+    <p class="text-right mr-3">image:<%= post.post_images.count %></p>
   <% end %>
   <div class="card-body">
     <span id="like_<%= post.id %>"><%= render "public/likes/like", post: post %></span>
