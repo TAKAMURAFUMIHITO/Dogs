@@ -1,5 +1,5 @@
 # Dogs
-![トップ画面](/app/assets/images/images/top.png)
+![top](https://user-images.githubusercontent.com/108682238/197973024-35ec3f31-dbcc-4bdc-ac58-5a5465a6cadf.png)
 
 ## サイト概要
 
@@ -42,7 +42,7 @@ http://3.115.177.12/
 - 管理者(会員・投稿編集機能)
 
 ## ER図
-![ER図](/app/assets/images/images/ER-image.png)
+![ER-image](https://user-images.githubusercontent.com/108682238/197973135-51f05f11-ad05-4796-9c43-c7e596feccc8.png)
 
 ## 開発環境
 
@@ -79,7 +79,7 @@ $ bundle install
 
 ## こだわりポイント
 - オリジナルのロゴ
-![ER図](/app/assets/images/images/Dogs-logo2.PNG)
+![Dogs-logo](https://user-images.githubusercontent.com/108682238/197972840-66479a9e-ea6f-449e-bf68-43a01c500f5b.png)
 - ワンちゃんをモチーフにした背景や、ひと目見て直感で分かるシンプルなレイアウト
 - 複数の画像が投稿・編集でき、スライド機能を付与
 
