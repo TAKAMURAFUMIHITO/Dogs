@@ -18,20 +18,21 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @today = Date.today #今日の日付を取得
-    @now = Time.now     #現在時刻を取得
-    to  = Time.current.at_end_of_day
-    from  = (to - 6.day).at_beginning_of_day
-    posts = Post.includes(:member).sort {|a,b|        # N+1問題解消  # 過去１週間のいいね数順に表示される
-      b.likes.where(created_at: from...to).size <=>
-      a.likes.where(created_at: from...to).size
-    }
-    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(15)  # ページネーション
+    @today = Date.today  # 今日の日付を取得
+    @now = Time.now      # 現在時刻を取得
+    if params[:old]
+      @posts = Post.old.page(params[:page]).per(15)                          # 古い順
+    elsif params[:week_likes]
+      posts = Post.week_likes
+      @posts =  Kaminari.paginate_array(posts).page(params[:page]).per(15)   # 過去1週間のいいね数順に表示される
+    else
+      @posts = Post.latest.page(params[:page]).per(15)                       # 新着順
+    end
   end
 
   def show
-    @today = Date.today #今日の日付を取得
-    @now = Time.now     #現在時刻を取得
+    @today = Date.today  # 今日の日付を取得
+    @now = Time.now      # 現在時刻を取得
     @post = Post.find(params[:id])
     @comment = Comment.new
   end
