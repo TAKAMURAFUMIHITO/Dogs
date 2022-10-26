@@ -51,7 +51,6 @@ Rails.application.routes.draw do
     end
     resources :members, only: [:index, :show, :edit, :update]
     get "searches/search"
-    patch "members/:id/withdraw" => "members#withdraw", as: "withdraw"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

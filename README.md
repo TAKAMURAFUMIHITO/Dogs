@@ -41,8 +41,16 @@ http://3.115.177.12/
 - スライド機能
 - 管理者(会員・投稿編集機能)
 
-## ER図
+## 設計書
+
+### ER図
 ![ER-image](https://user-images.githubusercontent.com/108682238/197973135-51f05f11-ad05-4796-9c43-c7e596feccc8.png)
+
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1uF9Uzu-YpCGpKt6kvDs5d6jP42IgaVUJdyG-W7iiP8Q/edit#gid=1373217982
+
+### アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/1GZ-l8WKwF1SVCI2KKpGcSZs_abfvy-0lkaQheXM_9og/edit#gid=549108681
 
 ## 開発環境
 
