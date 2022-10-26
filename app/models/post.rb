@@ -8,6 +8,13 @@ class Post < ApplicationRecord
   validates :title, length: { minimum: 2, maximum: 30 }, presence: true
   has_many_attached :post_images
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  # 過去1週間のいいね数順に表示される
+  to = Time.current.at_end_of_day
+  from = (to - 6.day).at_beginning_of_day
+  scope :week_likes, -> {includes(:member).sort {|a,b| b.likes.where(created_at: from...to).size <=> a.likes.where(created_at: from...to).size}}
+
   def liked_by?(member)
     likes.exists?(member_id: member.id)
   end
