@@ -114,7 +114,7 @@
 
 .my_message {
   padding: 5px 0;
-  margin-left: 335px;
+  text-align: right;
 }
 
 .my_message p {
@@ -122,10 +122,11 @@
   position: relative;
   margin: 0 10px 0 5px;
   padding: 8px;
-  max-width: 250px;
+  max-width: 300px;
   border-radius: 12px;
   background: #30e852;
   font-size: 15px;
+  text-align: left;
 }
 
 .my_message p:after {
