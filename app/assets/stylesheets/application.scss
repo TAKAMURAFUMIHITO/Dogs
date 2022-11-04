@@ -83,6 +83,10 @@
   text-align: center;
  }
 
+ .comment_time {
+   color: #808080;
+ }
+
  .search_form {
   text-align: right;
   margin-right: 10%;
@@ -237,4 +241,11 @@
 
 .slicker {
   margin: 0 auto;
+  width: 60%;
+}
+
+.slick-image {
+  width: 200px;
+	height: 160px;
+	object-fit: cover;
 }

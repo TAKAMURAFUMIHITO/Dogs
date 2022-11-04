@@ -1,4 +1,30 @@
 ja:
+  activerecord:
+      errors:
+        models:
+          member:
+            attributes:
+              email:
+                blank: 'を入力してください。'
+                taken: 'が既に使用されています。'
+              name:
+                blank: 'を入力してください。'
+                too_short: 'が短いです。(2文字以上)'
+                too_long: 'が長いです。(20文字以内)'
+              password:
+                blank: 'を入力してください。'
+                too_short: 'が短いです(6文字以上)。'
+              password_confirmation:
+                confirmation: 'が違います。'
+      models:
+        member: 'ユーザー'
+        post: '投稿'
+      attributes:
+        member:
+          email:  'メールアドレス'
+          password: 'パスワード'
+          password_confirmation: '確認用のパスワード'
+          name: 'ニックネーム'
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

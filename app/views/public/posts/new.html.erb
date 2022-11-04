@@ -2,8 +2,8 @@
   <div class="row">
     <div class="mx-auto col-10">
       <h2>投稿する</h2>
+      <h2><%= flash[:danger] %></h2>
       <p>写真や感じていることを投稿しましょう！</p>
-      <%= flash[:danger] %>
       <%= form_with model: @post, url: posts_path, method: :post, local: true do |f| %>
         <div class="form-group">
           <%= image_tag 'Dogs-logo2.PNG', style: "width: 20px;" %>

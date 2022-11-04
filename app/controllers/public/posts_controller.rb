@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
       redirect_to posts_path
     else
       @post = Post.new
-      flash[:danger] = "投稿に失敗しました。入力内容を確認してから再度お試しください。"
+      flash[:danger] = "タイトルは2～30字で入力してください。"
       render "new"
     end
   end
