@@ -43,6 +43,9 @@ http://3.115.177.12/
 
 ## 設計書
 
+### 実装機能リスト
+https://docs.google.com/spreadsheets/d/1MBhwb5Iq5QA6lMu01nwogumO7-5lxfqn8EniUr8tinQ/edit#gid=1898975908
+
 ### ER図
 ![ER-image](https://user-images.githubusercontent.com/108682238/197973135-51f05f11-ad05-4796-9c43-c7e596feccc8.png)
 
@@ -51,6 +54,9 @@ https://docs.google.com/spreadsheets/d/1uF9Uzu-YpCGpKt6kvDs5d6jP42IgaVUJdyG-W7ii
 
 ### アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1GZ-l8WKwF1SVCI2KKpGcSZs_abfvy-0lkaQheXM_9og/edit#gid=549108681
+
+### テスト仕様書
+https://docs.google.com/spreadsheets/d/1XGeGA0wrOjNaQROh6HXFyMlVKoosjbk7/edit#gid=2072448154
 
 ## 開発環境
 
