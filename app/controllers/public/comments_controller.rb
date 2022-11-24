@@ -10,8 +10,8 @@ class Public::CommentsController < ApplicationController
       @comment_post.create_notification_comment!(current_member, @comment.id)
     else
       flash[:comment] = "コメントできませんでした。"
-      redirect_to request.referer
     end
+    redirect_to request.referer
   end
 
   def destroy
