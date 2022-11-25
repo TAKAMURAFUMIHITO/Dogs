@@ -16,7 +16,7 @@
       <% end %>
     </th>
     <th width="400">
-      <%= comment.comment %><%= render "public/comments/time", comment: comment %>
+      <%= comment.comment %><%= render "public/comments/time", comment: comment, now: @now, today: @today %>
     </th>
     <th>
       <% if comment.member == current_member %>
