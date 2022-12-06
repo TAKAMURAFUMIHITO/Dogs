@@ -47,7 +47,7 @@ http://3.115.177.12/
 https://docs.google.com/spreadsheets/d/1MBhwb5Iq5QA6lMu01nwogumO7-5lxfqn8EniUr8tinQ/edit#gid=1898975908
 
 ### ER図
-![ER-image](https://user-images.githubusercontent.com/108682238/197973135-51f05f11-ad05-4796-9c43-c7e596feccc8.png)
+![ER-image png](https://user-images.githubusercontent.com/108682238/205820563-d5721636-35e2-47d4-97a5-11282fed5ccb.png)
 
 ### テーブル定義書
 https://docs.google.com/spreadsheets/d/1uF9Uzu-YpCGpKt6kvDs5d6jP42IgaVUJdyG-W7iiP8Q/edit#gid=1373217982
