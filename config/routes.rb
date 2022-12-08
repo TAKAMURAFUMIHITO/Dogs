@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root "homes#top"
+    
     get "homes/about"
+    
     resources :members, only: [:index, :show, :edit, :update] do
       resource :relationships, only: [:create, :destroy]
       get "followings" => "relationships#followings"
@@ -22,8 +24,11 @@ Rails.application.routes.draw do
         get :likes
       end
     end
+    
     get "members/:id/confirm" => "members#confirm", as: "confirm"
+    
     patch "members/:id/withdraw" => "members#withdraw", as: "withdraw"
+    
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource  :likes,    only: [:create, :destroy]
       member do
@@ -31,10 +36,15 @@ Rails.application.routes.draw do
       end
       resources :comments, only: [:create, :destroy]
     end
+    
     get "searches/search"
+    
     resources :messages,      only: [:create, :destroy]
+    
     resources :rooms,         only: [:create, :index, :show]
+    
     resources :notifications, only: :index
+    
     delete "destroy_all" => "notifications#destroy_all", as: "destroy_all"
   end
 

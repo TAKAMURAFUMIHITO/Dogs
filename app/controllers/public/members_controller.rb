@@ -9,13 +9,13 @@ class Public::MembersController < ApplicationController
     @posts = @member.posts.order(id: "DESC").page(params[:page]).per(8)   # 投稿idの降順,8つずつページネーション
     @today = Date.today # 今日の日付を取得
     @now = Time.now     # 現在時刻を取得
-    @current_entry = Entry.where(member_id: current_member.id)  # ログインしてるユーザーとメッセージ相手のユーザー情報をEntryテーブルから検索して取得
-    @another_entry = Entry.where(member_id: @member.id)
-    unless @member.id == current_member.id                      # 会員がログインしていない時
-      @current_entry.each do |current|                          # 取得した2つの会員情報をそれぞれeachで取り出してEntryテーブル内に同じroom_idが存在するか
-        @another_entry.each do |another|
+    @current_entry = Entry.where(member_id: current_member.id)  # 自分のものを検索
+    @another_entry = Entry.where(member_id: @member.id)         # 今開いているページのユーザーのものを検索
+    unless @member.id == current_member.id                      # もし今開いてるユーザーページが自分のページじゃなかったら
+      @current_entry.each do |current|                          # 自分が関係あるentryをeachで引っ張り出してくる
+        @another_entry.each do |another|                        # かつ、今開いているページのユーザーに関係あるentryをeachで引っ張り出してくる
           if current.room_id == another.room_id                 # 同じroom_idが存在する場合 → 既にroomが存在している
-            @is_room = true                                     # room_idの変数とroomが存在するかどうかの条件であるis_roomを渡す
+            @is_room = true                                     # すでに部屋があるということ
             @room_id = current.room_id
           end
         end
